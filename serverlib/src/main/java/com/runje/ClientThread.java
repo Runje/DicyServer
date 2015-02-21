@@ -40,7 +40,12 @@ public class ClientThread extends Thread
                      new InputStreamReader(clientSocket.getInputStream()));
              // Start Game
              Rules r = new Rules();
-             Board b = Board.createBoardNoPoints(5,5, r);
+             //Board b = Board.createBoardNoPoints(5,5, r);
+             Board b = Board.createElementsBoard(new int[]{1, 2, 3, 4, 5,
+                     2, 2, 4, 3, 3,
+                     1, 2, 2, 5, 3,
+                     6, 5, 4, 4, 5,
+                     5, 4, 5, 6, 5});
              String[] player = new String[] { "Thomas", "Milena"};
              StartGameMessage msg = new StartGameMessage(b, r, player);
              Gamemaster gamemaster = new Gamemaster(b, r, player, clientSocket);
